@@ -1,0 +1,34 @@
+<div data-role="page" data-url="<%= Rho::RhoConfig.start_path %>/">
+
+  <div data-role="header" data-position="inline">
+    <h1>WeatherReport</h1>
+    
+        <a href="<%= url_for :controller => :Settings, :action => :login %>" class="ui-btn-right" data-icon="star">Back</a>
+
+  </div>
+
+  <div data-role="content">
+    
+       
+    <ul data-role="listview">
+     
+      <li>
+        City : <%= @weather_report.elements["xml_api_reply"].elements["weather"].elements["forecast_information"].elements["city"].attributes['data'] %>
+      </li>
+      <li>
+        Temperature (C) : <%= @current_weather.elements["temp_c"].attributes['data']%> 
+      </li>
+      <li>
+        <%= @current_weather.elements["humidity"].attributes['data']%> 
+      </li>
+      <li>
+        Conditions : <%= @current_weather.elements["condition"].attributes['data']%> 
+      </li>
+     
+    </ul>
+    
+     
+  </div>
+
+</div>
+
